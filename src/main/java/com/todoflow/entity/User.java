@@ -11,6 +11,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)//auditing listener, entity'nin oluşturulması/güncellenmesi sırasında auditing bilgilerinin işlenmesini sağlıyor.
@@ -60,6 +62,12 @@ public class User {
     @LastModifiedDate//auditing
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+    private List<Todo> todos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<TodoShare> todoShares = new ArrayList<>();
 
     public User(String username, String email, String password, Role role) {
         this.username = username;
