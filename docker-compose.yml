@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17
+
+    environment:
+      POSTGRES_DB: todoflow
+      POSTGRES_USER: todoflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - todoflow-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  todoflow-postgres-data:
