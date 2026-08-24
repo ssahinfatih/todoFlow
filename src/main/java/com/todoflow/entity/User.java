@@ -60,4 +60,12 @@ public class User {
     @LastModifiedDate//auditing
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
+
+    public User(String username, String email, String password, Role role) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.enabled = true;
+    }
 }
