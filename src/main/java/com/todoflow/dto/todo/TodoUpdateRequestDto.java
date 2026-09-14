@@ -6,13 +6,11 @@ import jakarta.validation.constraints.Size;
 public record TodoUpdateRequestDto(
 
         @NotBlank(message = "Başlık boş bırakılamaz")
-        @Size(max = 150, message = "Başlık 150 karakterden fazla olamaz")
+        @Size(max = 200, message = "Başlık en fazla 200 karakter olabilir")
         String title,
 
-        @Size(max = 2000, message = "Açıklama 2000 karakterden fazla olamaz")
-        String description,
-
-        boolean completed
+        @Size(max = 1000, message = "Açıklama en fazla 1000 karakter olabilir")
+        String description
 
 ) {
 }

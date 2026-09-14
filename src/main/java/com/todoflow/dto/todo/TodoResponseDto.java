@@ -8,6 +8,7 @@ public record TodoResponseDto(
         String description,
         boolean completed,
         Long ownerId,
+        String ownerUsername,
         Instant createdAt,
         Instant updatedAt
 ) {

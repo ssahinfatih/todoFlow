@@ -12,11 +12,12 @@ import org.mapstruct.MappingTarget;
 public interface TodoMapper {
 
     @Mapping(source = "owner.id", target = "ownerId")
+    @Mapping(source = "owner.username", target = "ownerUsername")
     TodoResponseDto toResponseDto(Todo todo);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "completed", ignore = true)
     @Mapping(target = "owner", ignore = true)
-    @Mapping(target = "completed", constant = "false")
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "shares", ignore = true)
