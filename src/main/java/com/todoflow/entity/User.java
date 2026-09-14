@@ -69,6 +69,7 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<TodoShare> todoShares = new ArrayList<>();
 
+
     public User(String username, String email, String password, Role role) {
         this.username = username;
         this.email = email;

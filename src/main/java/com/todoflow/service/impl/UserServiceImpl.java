@@ -21,11 +21,11 @@ public class UserServiceImpl implements IUserService {
     public User save(User user) {
 
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-            throw new DuplicateUserException("Username already exists");
+            throw new DuplicateUserException("Kullanıcı adı zaten kullanılıyor.");
         }
 
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new DuplicateUserException("Email already exists");
+            throw new DuplicateUserException("Email zaten kullanılıyor.");
         }
 
         return userRepository.save(user);
